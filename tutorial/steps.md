@@ -1,0 +1,1 @@
+# Follow these steps for hard and soft scaling tests.

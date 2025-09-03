@@ -1,4 +1,5 @@
 #region modules
+from argparse import ArgumentParser
 #endregion
 
 #region variables
@@ -6,7 +7,16 @@
 
 #region functions
 def main():
-    pass
+    parser = ArgumentParser()
+    parser.add_argument(
+        '--generate',
+        action='store_true',
+    )
+
+
+    parsed_args = parser.parse_args()
+
+    
 #endregion
 
 #region classes
