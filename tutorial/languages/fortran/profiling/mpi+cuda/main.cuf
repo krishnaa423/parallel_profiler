@@ -1,0 +1,56 @@
+program mpi_cuda_dot
+  use mpi
+  use cudafor
+  implicit none
+  integer :: ierr, rank, size, nthreads, nblocks
+  integer(8) :: n, chunk, r, local_n, start
+  real(8), device :: dsum
+  real(8) :: local_sum, global_sum
+  type(dim3) :: grid, tBlock
+
+  call MPI_Init(ierr)
+  call MPI_Comm_rank(MPI_COMM_WORLD, rank, ierr)
+  call MPI_Comm_size(MPI_COMM_WORLD, size, ierr)
+
+  if (command_argument_count() < 1) then
+     if (rank==0) print *, "usage: mpi_cuda_dot n"
+     call MPI_Finalize(ierr)
+     stop
+  end if
+  call get_command_argument(1, n)
+
+  chunk = n / size
+  r     = mod(n, size)
+  local_n = chunk + merge(1,0, rank<r)
+  start   = rank*chunk + min(rank,r)
+
+  dsum = 0.0d0
+  nthreads = 256
+  nblocks  = min(1024, int((local_n+nthreads-1)/nthreads))
+  tBlock   = dim3(nthreads,1,1)
+  grid     = dim3(nblocks,1,1)
+
+  call dot_kernel<<<grid,tBlock>>>(dsum, local_n, start)
+  local_sum = dsum
+  call MPI_Reduce(local_sum, global_sum, 1, MPI_DOUBLE_PRECISION, MPI_SUM, 0, MPI_COMM_WORLD, ierr)
+
+  if (rank==0) then
+     print '(a, i12, a, i3, a, f20.12)', "[MPI+CUDA Fortran] n=", n, " ranks=", size, " sum=", global_sum
+  end if
+
+  call MPI_Finalize(ierr)
+contains
+  attributes(global) subroutine dot_kernel(sum, local_n, start)
+    real(8), device :: sum
+    integer(8), value :: local_n, start
+    integer :: tid, stride, i
+    real(8) :: loc
+    tid = (blockIdx%x-1)*blockDim%x + threadIdx%x
+    stride = blockDim%x*gridDim%x
+    loc = 0.0d0
+    do i = tid, local_n-1, stride
+       loc = loc + dble(start+i)* (1.0d0/dble(start+i+1))
+    end do
+    call atomicadd(sum, loc)
+  end subroutine
+end program

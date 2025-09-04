@@ -1,2 +1,0 @@
-/usr/bin/ar qc libopenmp_pow10.a CMakeFiles/openmp_pow10.dir/array_pow10.c.o
-/usr/bin/ranlib libopenmp_pow10.a

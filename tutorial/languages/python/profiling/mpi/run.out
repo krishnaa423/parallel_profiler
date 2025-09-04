@@ -1,0 +1,352 @@
+Done writing strong-scaling.sh.
+Done generating strong scaling script
+Running:  srun -n 1 python ./test.py 16384 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=1 time=184.816329s gflops=47.594 max_err=0.000e+00
+Done in 186.83656891202554 seconds.
+
+
+Running:  srun -n 2 python ./test.py 16384 .
+srun: warning: can't run 2 processes on 4 nodes, setting nnodes to 2
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=2 time=93.824254s gflops=93.751 max_err=0.000e+00
+Done in 103.93479363201186 seconds.
+
+
+Running:  srun -n 4 python ./test.py 16384 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=4 time=47.776270s gflops=184.110 max_err=0.000e+00
+Done in 50.53868504893035 seconds.
+
+
+Running:  srun -n 8 python ./test.py 16384 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=8 time=24.716209s gflops=355.884 max_err=0.000e+00
+Done in 28.19297463807743 seconds.
+
+
+Running:  srun -n 16 python ./test.py 16384 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=16 time=13.314333s gflops=660.648 max_err=0.000e+00
+Done in 15.912869966006838 seconds.
+
+
+Running:  srun -n 32 python ./test.py 16384 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=32 time=7.863466s gflops=1118.603 max_err=0.000e+00
+Done in 9.63609499600716 seconds.
+
+
+Done running strong scaling
+Done writing weak-scaling.sh.
+Done generating weak scaling script
+Running:  srun -n 1 python ./test.py 8192 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+OMP_OMPD active
+RESULT algo=ring_mm N=8192 P=1 time=25.555782s gflops=43.024 max_err=0.000e+00
+Done in 26.537286513019353 seconds.
+
+
+Running:  srun -n 8 python ./test.py 16384 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=16384 P=8 time=24.958180s gflops=352.433 max_err=0.000e+00
+Done in 26.973676400026307 seconds.
+
+
+Running:  srun -n 27 python ./test.py 24576 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=24576 P=27 time=27.146349s gflops=1093.584 max_err=0.000e+00
+Done in 30.0088587020291 seconds.
+
+
+Running:  srun -n 64 python ./test.py 32768 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=32768 P=64 time=32.415519s gflops=2170.835 max_err=0.000e+00
+Done in 36.49688078905456 seconds.
+
+
+Running:  srun -n 125 python ./test.py 40960 .
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+OMP_OMPD active
+RESULT algo=ring_mm N=40960 P=125 time=54.173352s gflops=2537.021 max_err=0.000e+00
+Done in 57.93402190099005 seconds.
+
+
+Done running weak scaling

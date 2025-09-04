@@ -1,0 +1,6 @@
+NVFORTRAN-F-0004-Unable to open MODULE file mpi_f08.mod (main.f90: 3)
+NVFORTRAN/x86-64 Linux 24.5-1: compilation aborted
+Done writing strong-scaling.sh.
+Done generating strong scaling script
+Running:  srun -n 1 ./main 16384 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1

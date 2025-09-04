@@ -1,0 +1,106 @@
+matmul:
+     41, !$omp parallel
+Done writing strong-scaling.sh.
+Done generating strong scaling script
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 5.125238505075686 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 3.055575232952833 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 1.6153925390681252 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 0.9583516099955887 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 0.5460770839126781 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 0.4221394209889695 seconds.
+
+
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 0.38815693801734596 seconds.
+
+
+Done running strong scaling
+Done writing weak-scaling.sh.
+Done generating weak scaling script
+Running:  srun -n 1 ./main 1024 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1024
+ C(1,1)=    358437376.0000000        C(n,n)=   -715303424.0000000     
+Done in 5.02670222602319 seconds.
+
+
+Running:  srun -n 1 ./main 1280 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1280
+ C(1,1)=    699868800.0000000        C(n,n)=   -1397281920.000000     
+Done in 4.292326381080784 seconds.
+
+
+Running:  srun -n 1 ./main 1600 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         1600
+ C(1,1)=    1366612000.000000        C(n,n)=   -2729386400.000000     
+Done in 4.183605818077922 seconds.
+
+
+Running:  srun -n 1 ./main 2048 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         2048
+ C(1,1)=    2865406976.000000        C(n,n)=   -5724525568.000000     
+Done in 5.686690588016063 seconds.
+
+
+Running:  srun -n 1 ./main 2560 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         2560
+ C(1,1)=    5595680000.000000        C(n,n)=   -11181533440.00000     
+Done in 5.865692463004962 seconds.
+
+
+Running:  srun -n 1 ./main 3264 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         3264
+ C(1,1)=    11596545376.00000        C(n,n)=   -23177115104.00000     
+Done in 6.31828900706023 seconds.
+
+
+Running:  srun -n 1 ./main 4096 .
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+ Using N =         4096
+ C(1,1)=    22914877440.00000        C(n,n)=   -45804595200.00000     
+Done in 11.858752760919742 seconds.
+
+
+Done running weak scaling

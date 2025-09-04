@@ -1,0 +1,49 @@
+program cuda_dot
+  use cudafor
+  implicit none
+  integer(8) :: n, i
+  real(8), allocatable, device :: A(:), B(:)
+  real(8), device :: dsum
+  real(8) :: sum
+  type(dim3) :: grid, tBlock
+  integer :: nblocks, nthreads
+
+  if (command_argument_count() < 1) then
+     print *, "usage: cuda_dot n"
+     stop
+  end if
+  call get_command_argument(1, n)
+
+  allocate(A(n), B(n))
+  do i = 1, n
+     A(i) = dble(i-1)
+     B(i) = 1.0d0/dble(i)
+  end do
+
+  dsum = 0.0d0
+  nthreads = 256
+  nblocks = min(1024, (n+nthreads-1)/nthreads)
+  tBlock = dim3(nthreads,1,1)
+  grid   = dim3(nblocks,1,1)
+
+  call dot_kernel<<<grid,tBlock>>>(A,B,dsum,n)
+  sum = dsum
+  print '(a, i12, a, f20.12)', "[CUDA Fortran] n=", n, " sum=", sum
+contains
+  attributes(global) subroutine dot_kernel(A,B,sum,n)
+    real(8), device :: A(:), B(:)
+    real(8), device :: sum
+    integer(8), value :: n
+    integer :: tid, stride, i
+    real(8) :: loc
+    tid = (blockIdx%x-1)*blockDim%x + threadIdx%x
+    stride = blockDim%x * gridDim%x
+    loc = 0.0d0
+    do i = tid, n, stride
+       if (i >= 1 .and. i <= n) then
+          loc = loc + A(i)*B(i)
+       end if
+    end do
+    call atomicadd(sum, loc)
+  end subroutine
+end program

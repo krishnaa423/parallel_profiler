@@ -18,7 +18,7 @@ class WeakScaling(Profiler):
     def mpi_str(self) -> str:
         assert self.args.program is not None, 'provide --program with program name'
         assert self.args.problem_sizes is not None, 'Provide problem size.'
-        assert len(self.args.problem_sizes)==1, 'Provide only unit problem size for ntask=1'
+        assert len(self.args.ntasks)==len(self.args.problem_sizes), 'Length of ntasks list should equal problem_sizes list.'
 
         problem_size_str: str = str(self.args.problem_sizes[0])
         nthread_str: str = str(self.args.nthreads[0])
@@ -36,6 +36,7 @@ import os
 import shlex
 
 ntasks = {self.args.ntasks}
+problem_sizes = {self.args.problem_sizes}
 elapsed_times = []
 mpi_prefix_args = ''
 cmd_extra_args = ''
@@ -45,9 +46,9 @@ stop_ntask_idx = {len(self.args.ntasks)}
 # Set omp_num_threads.
 os.environ['OMP_NUM_THREADS'] = str({self.args.nthreads[0]})
 
-for ntask in ntasks[start_ntask_idx:stop_ntask_idx]:
+for idx, ntask in enumerate(ntasks[start_ntask_idx:stop_ntask_idx]):
     # Build the cmd.
-    problem_size_arg = [str(ntask*{self.args.problem_sizes[0]})]
+    problem_size_arg = [str(problem_sizes[idx])]
     cmd = shlex.split('{self.args.mpiexec}') + shlex.split(f'-n {ntask_fstring}') + shlex.split(mpi_prefix_args) + shlex.split('{self.args.program}') + problem_size_arg + shlex.split(cmd_extra_args)
 
     # Run and time task
@@ -87,7 +88,7 @@ with open(filename, 'w') as f: config.write(f)
     def openmp_str(self) -> str:
         assert self.args.program is not None, 'provide --program with program name'
         assert self.args.problem_sizes is not None, 'Provide problem size.'
-        assert len(self.args.problem_sizes)==1, 'Provide only unit problem size for nthread=1'
+        assert len(self.args.nthreads)==len(self.args.problem_sizes), 'Length of ntasks list should equal problem_sizes list.'
 
         problem_size_str: str = str(self.args.problem_sizes[0])
         ntask_str: str = str(self.args.ntasks[0])
@@ -105,19 +106,20 @@ import os
 import shlex
 
 nthreads = {self.args.nthreads}
+problem_sizes = {self.args.problem_sizes}
 elapsed_times = []
 mpi_prefix_args = ''
 cmd_extra_args = ''
 start_nthread_idx = 0
 stop_nthread_idx = {len(self.args.nthreads)}
 
-for nthread in nthreads[start_nthread_idx:stop_nthread_idx]:
+for idx, nthread in enumerate(nthreads[start_nthread_idx:stop_nthread_idx]):
     # Build the cmd.
-    problem_size_arg = [str(nthread*{self.args.problem_sizes[0]})]
+    problem_size_arg = [str(problem_sizes[idx])]
     cmd = shlex.split('{self.args.mpiexec}') + shlex.split(f'-n {self.args.ntasks[0]}') + shlex.split(mpi_prefix_args) + shlex.split('{self.args.program}') + problem_size_arg + shlex.split(cmd_extra_args)
 
     # Set omp_num_threads. 
-    os.environ['OMP_NUM_THREADS'] = str('{nthread_fstring}')
+    os.environ['OMP_NUM_THREADS'] = str(f'{nthread_fstring}')
 
     # Run and time task
     start_time = time.perf_counter()

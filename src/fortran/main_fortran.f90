@@ -1,4 +1,0 @@
-program main
-
-
-end program

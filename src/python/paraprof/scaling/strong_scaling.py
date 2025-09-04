@@ -113,7 +113,7 @@ for nthread in nthreads[start_nthread_idx:stop_nthread_idx]:
     cmd = shlex.split('{self.args.mpiexec}') + shlex.split(f'-n {self.args.ntasks[0]}') + shlex.split(mpi_prefix_args) + shlex.split('{self.args.program}') + problem_size_arg + shlex.split(cmd_extra_args)
 
     # Set omp_num_threads. 
-    os.environ['OMP_NUM_THREADS'] = str('{nthread_fstring}')
+    os.environ['OMP_NUM_THREADS'] = str(f'{nthread_fstring}')
 
     # Run and time task
     start_time = time.perf_counter()

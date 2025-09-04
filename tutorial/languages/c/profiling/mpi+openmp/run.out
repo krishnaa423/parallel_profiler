@@ -1,0 +1,96 @@
+"main.c", line 30: warning: variable "end" was declared but never referenced [declared_but_not_referenced]
+      long long end = start + local_n; // [start, end)
+                ^
+
+Remark: individual warnings can be suppressed with "--diag_suppress <warning-name>"
+
+main:
+     39, #omp parallel
+     47, #omp parallel
+         47, Generating reduction(+:local_sum)
+Done writing strong-scaling.sh.
+Done generating strong scaling script
+Running:  srun -n 20 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=20 threads/rank=1  sum=9999983.304688641801  time=0.007 s
+Done in 0.9400872490368783 seconds.
+
+
+Running:  srun -n 50 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=50 threads/rank=1  sum=9999983.304688628763  time=0.004 s
+Done in 1.2025920960586518 seconds.
+
+
+Running:  srun -n 100 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=100 threads/rank=1  sum=9999983.304688626900  time=0.002 s
+Done in 1.3447222451213747 seconds.
+
+
+Running:  srun -n 120 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=120 threads/rank=1  sum=9999983.304688630626  time=0.001 s
+Done in 1.433184175984934 seconds.
+
+
+Running:  srun -n 150 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=150 threads/rank=1  sum=9999983.304688639939  time=0.002 s
+Done in 1.6059841171372682 seconds.
+
+
+Running:  srun -n 180 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=180 threads/rank=1  sum=9999983.304688636214  time=0.001 s
+Done in 1.751672402024269 seconds.
+
+
+Running:  srun -n 200 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=200 threads/rank=1  sum=9999983.304688638076  time=0.001 s
+Done in 1.803671611007303 seconds.
+
+
+Running:  srun -n 250 ./main 10000000 .
+[MPI+OpenMP] n=10000000 ranks=250 threads/rank=1  sum=9999983.304688634351  time=0.001 s
+Done in 2.1897436438594013 seconds.
+
+
+Done running strong scaling
+Done writing weak-scaling.sh.
+Done generating weak scaling script
+Running:  srun -n 20 ./main 16000000 .
+[MPI+OpenMP] n=16000000 ranks=20 threads/rank=1  sum=15999982.834685344249  time=0.010 s
+Done in 0.5095174838788807 seconds.
+
+
+Running:  srun -n 50 ./main 40000000 .
+[MPI+OpenMP] n=40000000 ranks=50 threads/rank=1  sum=39999981.918386988342  time=0.011 s
+Done in 1.106822713976726 seconds.
+
+
+Running:  srun -n 100 ./main 80000000 .
+[MPI+OpenMP] n=80000000 ranks=100 threads/rank=1  sum=79999981.225216045976  time=0.012 s
+Done in 1.3576581489760429 seconds.
+
+
+Running:  srun -n 120 ./main 96000000 .
+[MPI+OpenMP] n=96000000 ranks=120 threads/rank=1  sum=95999981.042893096805  time=0.014 s
+Done in 0.9607210599351674 seconds.
+
+
+Running:  srun -n 150 ./main 120000000 .
+[MPI+OpenMP] n=120000000 ranks=150 threads/rank=1  sum=119999980.819693177938  time=0.015 s
+Done in 1.5877649188041687 seconds.
+
+
+Running:  srun -n 180 ./main 144000000 .
+[MPI+OpenMP] n=144000000 ranks=180 threads/rank=1  sum=143999980.637375026941  time=0.017 s
+Done in 1.8300840540323406 seconds.
+
+
+Running:  srun -n 200 ./main 160000000 .
+[MPI+OpenMP] n=160000000 ranks=200 threads/rank=1  sum=159999980.532017648220  time=0.019 s
+Done in 1.332085601054132 seconds.
+
+
+Running:  srun -n 250 ./main 200000000 .
+[MPI+OpenMP] n=200000000 ranks=250 threads/rank=1  sum=199999980.308883249760  time=0.022 s
+Done in 1.6094832390081137 seconds.
+
+
+Done running weak scaling
