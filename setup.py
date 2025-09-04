@@ -6,29 +6,29 @@ import numpy as np
 #endregion
 
 #region classes
-class NumpyInclude(build_ext):
-    def finalize_options(self):
-        super().finalize_options()
-        for ext in self.extensions:
-            ext.include_dirs.append(np.get_include())
-            ext.extra_compile_args = ['-O3', '-fopenmp']
+# class NumpyInclude(build_ext):
+#     def finalize_options(self):
+#         super().finalize_options()
+#         for ext in self.extensions:
+#             ext.include_dirs.append(np.get_include())
+#             ext.extra_compile_args = ['-O3', '-fopenmp']
 
 #endregion
 
 #region variables
-cython_extension  =  Extension(
-    'paraprof.cython_ext',
-    sources=['src/cython/main_cython.pyx'],
-)
+# cython_extension  =  Extension(
+#     'paraprof.cython_ext',
+#     sources=['src/cython/main_cython.pyx'],
+# )
 
-c_extension = Extension(
-    'paraprof.c_ext',
-    sources=['src/c/main_c.c']
-)
+# c_extension = Extension(
+#     'paraprof.c_ext',
+#     sources=['src/c/main_c.c']
+# )
 
-extensions = [
+# extensions = [
 
-]
+# ]
 #endregion
 
 #region functions
@@ -45,14 +45,14 @@ setup(
         'cython',
         'setuptools',
     ],
-    ext_modules=cythonize(extensions),
+    # ext_modules=cythonize(extensions),
     entry_points={
         'console_scripts': [
             'paraprof=paraprof.scripts.paraprof:main',
         ],
     },
-    cmdclass={
-        'build_ext': NumpyInclude,
-    }
+    # cmdclass={
+    #     'build_ext': NumpyInclude,
+    # }
 )
 #endregion

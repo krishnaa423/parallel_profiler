@@ -1,0 +1,1 @@
+/opt/homebrew/bin/gcc-11  -O3 -g -fopenmp -DARRAY_INIT_VALUE=2.0 -DARRAY_SIZE=100 -DCHUNK_SIZE=4 -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_openmp_pow10_c.dir/main.c.o -o test_openmp_pow10_c  libopenmp_pow10.a -lgomp

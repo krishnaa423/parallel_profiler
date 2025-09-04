@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/krishnaa/Documents/Programming/fortran/parallel_profiler/src/c/openmp/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

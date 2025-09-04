@@ -4,4 +4,3 @@ paraprof.egg-info/
 *cpython*.so
 .DS_Store
 __pycache__
-/small_tests
